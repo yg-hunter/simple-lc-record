@@ -18,6 +18,7 @@
 <h1 id="1.1"> LeetCode 206 </h1>  [回到目录](#0)  
 ## 1 [反转链表 reverse linked list](https://leetcode-cn.com/problems/reverse-linked-list/)
 
+1、迭代法  
 ```c++
 /**
  * Definition for singly-linked list.
@@ -51,4 +52,42 @@ public:
         return pre;
     }
 };
+```   
+
+更精炼的写法可以这样：  
+```c++
+ListNode* reverseList(ListNode* head) 
+{        
+    ListNode *pre = nullptr;
+    ListNode *cur = head;
+
+    ListNode *tmp = nullptr;
+    while(cur!=nullptr) {
+        tmp = cur->next; // 暂存,防断链后丢失后面结点
+
+        cur->next = pre; // 反转
+
+        // 后移一个
+        pre = cur; 
+        cur = tmp;
+    }
+
+    return pre;
+}
 ```
+
+2、递归法  
+```c++
+ListNode* reverseList(ListNode* head) 
+{        
+    if (head == nullptr || head->next == nullptr) 
+        return head;
+
+    ListNode* pre = reverseList(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+    return pre;
+}
+```
+
+
