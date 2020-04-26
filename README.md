@@ -18,6 +18,7 @@
 <h1 id="1.1"> LeetCode 206 </h1>  [回到目录](#0)  
 ## 1 [反转链表 reverse linked list](https://leetcode-cn.com/problems/reverse-linked-list/)
 
+```c++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -50,4 +51,4 @@ public:
         return pre;
     }
 };
-
+```
