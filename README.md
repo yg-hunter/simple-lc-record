@@ -90,4 +90,34 @@ ListNode* reverseList(ListNode* head)
 }
 ```
 
+最后，我发现我把上面代码改写成c代码，耗时跟空间占用都减少了不少（包括递归解法），比如方法2：
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* reverseList(struct ListNode* head){        
+        struct ListNode *pre = NULL; // head结点就是头结点，也存数据，所以要从head开始处理
+        struct ListNode *cur = head;
+
+        struct ListNode *tmp = NULL;
+        while(cur!=NULL) {
+            tmp = cur->next; // 暂存,防断链后丢失后面结点
+            
+            cur->next = pre; // 反转
+
+            // 后移一个
+            pre = cur; 
+            cur = tmp;
+        }
+
+        return pre;
+}
+```
+
+
+
 
