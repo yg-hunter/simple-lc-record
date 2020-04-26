@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+# [leetcode resolutions](#leetcode-resolutions)
+<br/>
+<br/>
 
-You can use the [editor on GitHub](https://github.com/ygshine/yg-leetcode-doc.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<h1 id="0">TABEL OF CONTENTS</h1>  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- ## linked list
+    - [206.  反转链表](#1.1)
+    
+    
+    
+    <br/>  
+    <br/>  
+    
+    
+    
+ 
+<h1 id="1.1"> LeetCode 206 </h1>  [回到目录](#0)  
+## 1 [反转链表 reverse linked list](https://leetcode-cn.com/problems/reverse-linked-list/)
 
-### Markdown
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head == nullptr || head->next == nullptr)
+            return head;
+        
+        ListNode *pre = head; // head结点就是头结点，也存数据，所以要从head开始处理
+        ListNode *cur = pre->next;
+        pre->next = nullptr; // 头结点变为尾结点后，后继要置空
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        ListNode *tmp = nullptr;
+        while(cur!=nullptr) {
+            tmp = cur->next; // 暂存,防断链后丢失后面结点
+            
+            cur->next = pre; // 反转
 
-```markdown
-Syntax highlighted code block
+            // 后移一个
+            pre = cur; 
+            cur = tmp;
+        }
 
-# Header 1
-## Header 2
-### Header 3
+        return pre;
+    }
+};
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ygshine/yg-leetcode-doc.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
