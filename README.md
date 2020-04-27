@@ -121,7 +121,7 @@ struct ListNode* reverseList(struct ListNode* head){
     <br/>  
     <br/>  
      
-<h1 id="1.2"> LeetCode 206 </h1>  [回到目录](#0)  
+<h1 id="1.2"> LeetCode 21 </h1>  [回到目录](#0)  
 ## 2 [合并两个有序链表 merge two sorted lists](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
 
 2.1 迭代法  
@@ -226,7 +226,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
     <br/>  
     <br/>  
      
-<h1 id="1.3"> LeetCode 206 </h1>  [回到目录](#0)  
+<h1 id="1.3"> LeetCode 19 </h1>  [回到目录](#0)  
 ## 3 [删除链表的倒数第N个节点 remove nth node from end of list](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
 
 3.1 迭代法  
