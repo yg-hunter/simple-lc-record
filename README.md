@@ -153,6 +153,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
 
     struct ListNode *l3_next = l3;
     
+    // 逐个遍历两个链表的数据，较小者并入l3
     while(cur1!=NULL && cur2!=NULL) {
         if(cur1->val <= cur2->val) {
             l3_next->next = cur1;
@@ -164,11 +165,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
         }
         l3_next = l3_next->next;
     }
-    if(cur2 == NULL)
-        l3_next->next = cur1;
-    
-    if(cur1 == NULL)
-        l3_next->next = cur2;
+    l3_next->next = (cur1==NULL)?cur2:cur1; // 剩余节点，拼接到l3链表尾部即可
 
     return l3;
 }
