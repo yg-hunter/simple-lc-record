@@ -7,6 +7,7 @@
 - ## linked list
     - [206.  反转链表](#1.1)
     - [21.  合并两个有序链表](#1.2)
+    - [19.  删除链表的倒数第N个节点](#1.3)
     
     
     
@@ -221,6 +222,55 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
     }
 }
 ```  
+  
+    <br/>  
+    <br/>  
+     
+<h1 id="1.3"> LeetCode 206 </h1>  [回到目录](#0)  
+## 3 [删除链表的倒数第N个节点 remove nth node from end of list](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+
+3.1 迭代法  
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
+    if(head==NULL)
+        return head;
+
+    struct ListNode *pre_nth_node = head;
+    struct ListNode *fast_node = head;
+
+    for(int i = 0; i < n && fast_node!=NULL; i++)
+        fast_node = fast_node->next;
+        
+    if(fast_node==NULL){ // only one or two nodes, delete the last one
+        head = head->next;
+        return head;
+    }
+    
+    while(fast_node!=NULL && fast_node->next!=NULL){
+        pre_nth_node = pre_nth_node->next;
+        fast_node = fast_node->next;
+    }
+    if(pre_nth_node->next==NULL) // only two nodes, delete the first one
+        head->next = NULL;
+    else
+        pre_nth_node->next = pre_nth_node->next->next;
+    
+    return head;
+}
+```
+双百的代码，执行结果：  
+提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
+-|-|-|-|-|
+几秒前 | 通过 | 0 ms | 5.3 MB | C |
+
 
 
 
