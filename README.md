@@ -117,8 +117,8 @@ struct ListNode* reverseList(struct ListNode* head){
         return pre;
 }
 ```
-
-  
+    
+      
     <br/>    
     <br/>    
 
@@ -224,10 +224,12 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
         return l2;
     }
 }
-```  
+```    
+   
+      
   
-    <br/>    
-    <br/>    
+  <br/>    
+  <br/>    
     
     
      
