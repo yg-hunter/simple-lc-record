@@ -8,6 +8,7 @@
     - [206.  反转链表](#1.1)
     - [21.  合并两个有序链表](#1.2)
     - [19.  删除链表的倒数第N个节点](#1.3)
+    - [24. 两两交换链表中的节点](#1.4)
     
     
     
@@ -281,4 +282,43 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 
 
 
+    <br/>    
+    <br/>    
+
+     
+<h1 id="1.4"> LeetCode 24 </h1>  [回到目录](#0)  
+## 4 [两两交换链表中的节点 swap nodes in pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+
+1.1 迭代法  
+需要三个指针：要交换的两个元素指针，及其前驱指针。  
+构造一个头指针，可以用一个临时变量指向head，最后返回头指针的next即可。  
+```c
+struct ListNode* swapPairs(struct ListNode* head){
+    if(head == NULL || head->next == NULL)
+        return head;
+    
+    struct ListNode obj_head;
+    obj_head.next = head;
+    struct ListNode *prev = &obj_head;
+    struct ListNode *curr1 = prev->next;
+    struct ListNode *curr2 = curr1->next, *tmp = NULL;
+
+    while(curr2 != NULL) {
+        tmp = curr2->next;
+
+        curr2->next = curr1;
+        curr1->next = tmp;
+        prev->next = curr2;
+        
+        prev = curr1;
+        curr1 = curr1->next;
+        if(curr1 == NULL)
+            break;
+        
+        curr2 = curr1->next;
+    }
+
+    return obj_head.next;
+}
+```
 
