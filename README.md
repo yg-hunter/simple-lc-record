@@ -279,14 +279,14 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 双百的代码，执行结果：  
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
 -|-|-|-|-|
-几秒前 | 通过 | 0 ms | 5.3 MB | C |
+几秒前 | 通过 | 0 ms | 5.3 MB | C |  
   
    
    
 
-
-    <br/>    
-    <br/>    
+  
+  <br/>    
+  <br/>    
 
      
 <h1 id="1.4"> LeetCode 24 </h1>  [回到目录](#0)  
@@ -341,15 +341,17 @@ struct ListNode* swapPairs(struct ListNode* head){
 
     return curr2;
 }
- ```   
+ ```       
    
    
-    
+      
    
 
-
-    <br/>    
-    <br/>    
+   
+   
+  
+  <br/>    
+  <br/>    
 
      
 <h1 id="1.5"> LeetCode 61 </h1>  [回到目录](#0)  
