@@ -8,7 +8,8 @@
     - [206.  反转链表](#1.1)
     - [21.  合并两个有序链表](#1.2)
     - [19.  删除链表的倒数第N个节点](#1.3)
-    - [24. 两两交换链表中的节点](#1.4)
+    - [24. 两两交换链表中的节点](#1.4)  
+    - [61. 旋转链表](#1.5)  
     
     
     
@@ -279,7 +280,9 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
 -|-|-|-|-|
 几秒前 | 通过 | 0 ms | 5.3 MB | C |
-
+  
+   
+   
 
 
     <br/>    
@@ -289,7 +292,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 <h1 id="1.4"> LeetCode 24 </h1>  [回到目录](#0)  
 ## 4 [两两交换链表中的节点 swap nodes in pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 
-1.1 迭代法  
+4.1 迭代法  
 需要三个指针：要交换的两个元素指针，及其前驱指针。  
 构造一个头指针，可以用一个临时变量指向head，最后返回头指针的next即可。  
 ```c
@@ -320,5 +323,76 @@ struct ListNode* swapPairs(struct ListNode* head){
 
     return obj_head.next;
 }
+```   
+
+  
+  
+2 递归
+```c
+struct ListNode* swapPairs(struct ListNode* head){
+    if (head == NULL || head->next == NULL)
+        return head;
+
+    struct ListNode *curr1 = head;
+    struct ListNode *curr2 = curr1->next;
+
+    curr1->next  = swapPairs(curr2->next);
+    curr2->next = curr1;
+
+    return curr2;
+}
+ ```   
+   
+   
+    
+   
+
+
+    <br/>    
+    <br/>    
+
+     
+<h1 id="1.5"> LeetCode 61 </h1>  [回到目录](#0)  
+## 5 [旋转链表 rotate list](https://leetcode-cn.com/problems/rotate-list/)  
+给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。  
 ```
+输入: 1->2->3->4->5->NULL, k = 2
+输出: 4->5->1->2->3->NULL
+解释:
+向右旋转 1 步: 5->1->2->3->4->NULL
+向右旋转 2 步: 4->5->1->2->3->NULL
+```
+
+5.1 迭代法   
+
+```c
+struct ListNode* rotateRight(struct ListNode* head, int k){
+    if(k <= 0 || head == NULL)
+        return head;
+    
+    struct ListNode *slow = head, *fast = head;
+    for(int i = 0; i < k; i++) {
+        fast= fast->next;
+        if(fast == NULL) {
+            fast = head;
+            k = k%(i+1) + i+1; //i+1 is nodes counts
+        }
+    }
+    if(fast == slow) // no need op
+        return head;
+
+    while(fast->next!=NULL){
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    struct ListNode *new_head = slow->next;
+    slow->next = NULL;
+    fast->next = head;
+
+    return new_head;
+}
+```
+  
+  
 
