@@ -1,4 +1,4 @@
-# [leetcode resolutions](#leetcode-resolutions)
+# [Leetcode Resolutions](#leetcode-resolutions)
 <br/>
 <br/>
 
@@ -16,7 +16,7 @@
 - ## [Binary Tree](#2)
     - [94. 二叉树的中序遍历](#2.1)  
     - [144. 二叉树的前序遍历](#2.2)    
-    - [94. 二叉树的后序遍历](#2.3)    
+    - [145. 二叉树的后序遍历](#2.3)    
     
     
     <br/>    
@@ -367,7 +367,9 @@ struct ListNode* swapPairs(struct ListNode* head){
 
      
 <h1 id="1.5"> LeetCode 61 </h1>  [回到目录](#0)    
-## 5 [旋转链表 rotate list](https://leetcode-cn.com/problems/rotate-list/)      
+## 5 [旋转链表 rotate list](https://leetcode-cn.com/problems/rotate-list/)     
+  
+  
 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。  
 ```
 输入: 1->2->3->4->5->NULL, k = 2
@@ -479,7 +481,9 @@ struct ListNode* partition(struct ListNode* head, int x){
    <br/>    
   
 <h1 id="2.1"> LeetCode 94 </h1>  [回到目录](#0)      
-## 1 [二叉树的中序遍历 binary-tree inorder traversa](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)      
+## 1 [二叉树的中序遍历 binary-tree inorder traversa](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)       
+  
+  
 给定一个二叉树，返回它的中序 遍历。  
 
 **进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
@@ -526,7 +530,9 @@ public:
    <br/>    
   
 <h1 id="2.2"> LeetCode 144 </h1>  [回到目录](#0)  
-## 2 [二叉树的前序遍历 binary-tree preorder traversa](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)    
+## 2 [二叉树的前序遍历 binary-tree preorder traversa](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)     
+   
+   
 给定一个二叉树，返回它的 `前序` 遍历。  
 
 **进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
@@ -563,7 +569,9 @@ public:
    <br/>    
   
 <h1 id="2.3"> LeetCode 145 </h1>  [回到目录](#0)   
-## 3 [二叉树的后序遍历 binary-tree postorder traversa](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)      
+## 3 [二叉树的后序遍历 binary-tree postorder traversa](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)    
+  
+  
 给定一个二叉树，返回它的 `后序` 遍历。  
 
 **进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
