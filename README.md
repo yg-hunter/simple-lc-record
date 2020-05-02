@@ -10,6 +10,7 @@
     - [19.  删除链表的倒数第N个节点](#1.3)
     - [24. 两两交换链表中的节点](#1.4)  
     - [61. 旋转链表](#1.5)  
+    - [44. 分隔链表](#1.6)  
     
     
     
@@ -394,7 +395,71 @@ struct ListNode* rotateRight(struct ListNode* head, int k){
 
     return new_head;
 }
-```
+```  
   
+      
+    
+    <br/>    
+    <br/>    
+
+     
+<h1 id="1.6"> LeetCode 44 </h1>  [回到目录](#0)  
+## 6 [分隔链表 partition list](https://leetcode-cn.com/problems/partition-list/)   
+给定一个链表和一个特定值 `x`，对链表进行分隔，使得所有小于 `x` 的节点都在大于或等于 `x` 的节点之前。   
+
+**注意** 你应当保留两个分区中每个节点的初始相对位置。   
+
+c代码如下：  
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+struct ListNode* partition(struct ListNode* head, int x){
+    if(head == NULL || head->next == NULL)
+        return head;
+
+    struct ListNode obj_head; // 临时变量，指向链表头结点，因为head也有可能需要移动到链表后面
+    obj_head.next = head;
+
+    struct ListNode* curr = &obj_head;  // 指向大于x的元素的前一个节点
+    struct ListNode* prev_less = curr;  // less的前驱，移动less时需要
+    struct ListNode* less = curr->next; // 用于遍历指针，找到小于x的元素
+    while(curr!=NULL && less!=NULL) {
+        if(less->val < x) { // 找到小于x的元素
+            if(curr->next!=less) { // 暂无大于x的节点
+                struct ListNode* tmp = curr->next;
+                curr->next = less;
+                prev_less->next = less->next;
+                less->next = tmp;
+            }
+            
+            curr = curr->next;
+            prev_less = less;
+            less = less->next;
+        }
+        else {
+            prev_less = less;
+            less = less->next;
+        }
+    }
+    return obj_head.next;
+}
+```   
+相同的代码，改成c++之后，提交指向结果对比：  
+
+提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
+-|-|-|-|-|
+几秒前 | 通过 | 8 ms | 6.7 MB | Cpp |
+2 分钟前 | 通过 | 0 ms | 5.4 MB | C |  
+  
+  
+  
+  
+
   
 
