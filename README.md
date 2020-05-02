@@ -15,7 +15,7 @@
 
 - ## [Binary Tree](#2)
     - [94. 二叉树的中序遍历](#2.1)  
-    - [94. 二叉树的前序遍历](#2.2)    
+    - [144. 二叉树的前序遍历](#2.2)    
     - [94. 二叉树的后序遍历](#2.3)    
     
     
@@ -473,24 +473,18 @@ struct ListNode* partition(struct ListNode* head, int x){
   <br/>  
   <br/>
   
-  
-  
  <h1 id="2"> BINARY TREE </h1>  [回到目录](#0)  
    
    <br/>    
    <br/>    
   
-    
-    
-
-     
 <h1 id="2.1"> LeetCode 94 </h1>  [回到目录](#0)  
 ## 1 [二叉树的中序遍历 binary-tree inorder traversa](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)  
 给定一个二叉树，返回它的中序 遍历。  
 
 **进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
 
-1.1 递归法  
+### 1.1 递归法  
 c++代码如下：  
 ```c++
 /**
@@ -522,8 +516,44 @@ public:
 };
 ```  
 
-1.2 迭代法
+### 1.2 迭代法
 
 
   
+  
+  
+   <br/>    
+   <br/>    
+  
+<h1 id="2.2"> LeetCode 144 </h1>  [回到目录](#0)  
+## 2 [二叉树的前序遍历 binary-tree preorder traversa](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)  
+给定一个二叉树，返回它的 `前序` 遍历。  
+
+**进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
+
+### 2.1 递归法  
+c++代码如下：  
+```c++
+class Solution {
+public:
+    void do_preorder_traversal(TreeNode* node, vector<int>& res) {
+        if(node != nullptr) {
+            res.push_back(node->val);
+            do_preorder_traversal(node->left, res);
+            do_preorder_traversal(node->right, res);
+        }
+    }
+    
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        
+        do_preorder_traversal(root, res);
+
+        return res;        
+    }
+};
+```    
+### 2.2 迭代法  
+
+
 
