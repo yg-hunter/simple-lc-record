@@ -29,10 +29,10 @@
    
 
      
-<h1 id="1.1"> LeetCode 206 </h1>  [回到目录](#0)  
-## 1 [反转链表 reverse linked list](https://leetcode-cn.com/problems/reverse-linked-list/)
+<h1 id="1.1"> LeetCode 206 </h1>  [回到目录](#0)   
+## 1 [反转链表 reverse linked list](https://leetcode-cn.com/problems/reverse-linked-list/)  
 
-1.1 迭代法  
+### 1.1 迭代法  
 ```c++
 /**
  * Definition for singly-linked list.
@@ -90,7 +90,7 @@ ListNode* reverseList(ListNode* head)
 }
 ```
 
-1.2 递归法  
+### 1.2 递归法  
 ```c++
 ListNode* reverseList(ListNode* head) 
 {        
@@ -140,9 +140,9 @@ struct ListNode* reverseList(struct ListNode* head){
    
      
 <h1 id="1.2"> LeetCode 21 </h1>  [回到目录](#0)  
-## 2 [合并两个有序链表 merge two sorted lists](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+## 2 [合并两个有序链表 merge two sorted lists](https://leetcode-cn.com/problems/merge-two-sorted-lists/)  
 
-2.1 迭代法  
+### 2.1 迭代法  
 
 ```c
 /**
@@ -221,7 +221,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
 }
 ```
 
-2.2 递归法
+### 2.2 递归法
 ```c
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
     if(l1 == NULL)
@@ -249,9 +249,9 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
     
      
 <h1 id="1.3"> LeetCode 19 </h1>  [回到目录](#0)  
-## 3 [删除链表的倒数第N个节点 remove nth node from end of list](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+## 3 [删除链表的倒数第N个节点 remove nth node from end of list](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)  
 
-3.1 迭代法  
+### 3.1 迭代法  
 ```c
 /**
  * Definition for singly-linked list.
@@ -301,10 +301,10 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
   <br/>    
 
      
-<h1 id="1.4"> LeetCode 24 </h1>  [回到目录](#0)  
-## 4 [两两交换链表中的节点 swap nodes in pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+<h1 id="1.4"> LeetCode 24 </h1>  [回到目录](#0)   
+## 4 [两两交换链表中的节点 swap nodes in pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)    
 
-4.1 迭代法  
+### 4.1 迭代法  
 需要三个指针：要交换的两个元素指针，及其前驱指针。  
 构造一个头指针，可以用一个临时变量指向head，最后返回头指针的next即可。  
 ```c
@@ -339,7 +339,7 @@ struct ListNode* swapPairs(struct ListNode* head){
 
   
   
-2 递归
+### 4.2 递归
 ```c
 struct ListNode* swapPairs(struct ListNode* head){
     if (head == NULL || head->next == NULL)
@@ -366,8 +366,8 @@ struct ListNode* swapPairs(struct ListNode* head){
   <br/>    
 
      
-<h1 id="1.5"> LeetCode 61 </h1>  [回到目录](#0)  
-## 5 [旋转链表 rotate list](https://leetcode-cn.com/problems/rotate-list/)  
+<h1 id="1.5"> LeetCode 61 </h1>  [回到目录](#0)    
+## 5 [旋转链表 rotate list](https://leetcode-cn.com/problems/rotate-list/)      
 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。  
 ```
 输入: 1->2->3->4->5->NULL, k = 2
@@ -377,7 +377,7 @@ struct ListNode* swapPairs(struct ListNode* head){
 向右旋转 2 步: 4->5->1->2->3->NULL
 ```
 
-5.1 迭代法   
+### 5.1 迭代法   
 
 ```c
 struct ListNode* rotateRight(struct ListNode* head, int k){
@@ -414,8 +414,8 @@ struct ListNode* rotateRight(struct ListNode* head, int k){
   
 
      
-<h1 id="1.6"> LeetCode 44 </h1>  [回到目录](#0)  
-## 6 [分隔链表 partition list](https://leetcode-cn.com/problems/partition-list/)   
+<h1 id="1.6"> LeetCode 44 </h1>  [回到目录](#0)    
+## 6 [分隔链表 partition list](https://leetcode-cn.com/problems/partition-list/)     
 给定一个链表和一个特定值 `x`，对链表进行分隔，使得所有小于 `x` 的节点都在大于或等于 `x` 的节点之前。   
 
 **注意** 你应当保留两个分区中每个节点的初始相对位置。   
@@ -473,13 +473,13 @@ struct ListNode* partition(struct ListNode* head, int x){
   <br/>  
   <br/>
   
- <h1 id="2"> BINARY TREE </h1>  [回到目录](#0)  
+ <h1 id="2"> BINARY TREE </h1>  [回到目录](#0)   
    
    <br/>    
    <br/>    
   
-<h1 id="2.1"> LeetCode 94 </h1>  [回到目录](#0)  
-## 1 [二叉树的中序遍历 binary-tree inorder traversa](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)  
+<h1 id="2.1"> LeetCode 94 </h1>  [回到目录](#0)      
+## 1 [二叉树的中序遍历 binary-tree inorder traversa](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)      
 给定一个二叉树，返回它的中序 遍历。  
 
 **进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
@@ -526,7 +526,7 @@ public:
    <br/>    
   
 <h1 id="2.2"> LeetCode 144 </h1>  [回到目录](#0)  
-## 2 [二叉树的前序遍历 binary-tree preorder traversa](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)  
+## 2 [二叉树的前序遍历 binary-tree preorder traversa](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)    
 给定一个二叉树，返回它的 `前序` 遍历。  
 
 **进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
@@ -554,6 +554,40 @@ public:
 };
 ```    
 ### 2.2 迭代法  
+
+
+
+
+  
+   <br/>    
+   <br/>    
+  
+<h1 id="2.3"> LeetCode 145 </h1>  [回到目录](#0)   
+## 3 [二叉树的后序遍历 binary-tree postorder traversa](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)      
+给定一个二叉树，返回它的 `后序` 遍历。  
+
+**进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
+
+### 3.1 递归法  
+c++代码如下：  
+```c++
+void do_postorder_traversal(TreeNode* node, vector<int>& res) {
+    if(node != nullptr) {
+        do_postorder_traversal(node->left, res);
+        do_postorder_traversal(node->right, res);
+        res.push_back(node->val);
+    }
+}
+
+vector<int> postorderTraversal(TreeNode* root) {
+    vector<int> res;
+    
+    do_postorder_traversal(root, res);
+
+    return res;        
+}
+```    
+### 3.2 迭代法    
 
 
 
