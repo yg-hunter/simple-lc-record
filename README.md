@@ -4,18 +4,29 @@
 
 <h1 id="0">TABEL OF CONTENTS</h1>  
 
-- ## linked list
+- ## [Linked List](#1)
     - [206.  反转链表](#1.1)
     - [21.  合并两个有序链表](#1.2)
     - [19.  删除链表的倒数第N个节点](#1.3)
     - [24. 两两交换链表中的节点](#1.4)  
     - [61. 旋转链表](#1.5)  
-    - [44. 分隔链表](#1.6)  
+    - [44. 分隔链表](#1.6)   
     
+
+- ## [Binary Tree](#2)
+    - [94. 二叉树的中序遍历](#2.1)  
+    - [94. 二叉树的前序遍历](#2.2)    
+    - [94. 二叉树的后序遍历](#2.3)    
     
     
     <br/>    
-    <br/>    
+    <br/>   
+    
+ <h1 id="1"> Linked List </h1>  [回到目录](#0)   
+   <br/>  
+   <br/>   
+   
+   
 
      
 <h1 id="1.1"> LeetCode 206 </h1>  [回到目录](#0)  
@@ -397,10 +408,10 @@ struct ListNode* rotateRight(struct ListNode* head, int k){
 }
 ```  
   
-      
-    
-    <br/>    
-    <br/>    
+  <br/>     
+  <br/>     
+  
+  
 
      
 <h1 id="1.6"> LeetCode 44 </h1>  [回到目录](#0)  
@@ -455,11 +466,64 @@ struct ListNode* partition(struct ListNode* head, int x){
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
 -|-|-|-|-|
 几秒前 | 通过 | 8 ms | 6.7 MB | Cpp |
-2 分钟前 | 通过 | 0 ms | 5.4 MB | C |  
+2 分钟前 | 通过 | 0 ms | 5.4 MB | C |     
+  
+  
+  <br/>  
+  <br/>  
+  <br/>
   
   
   
+ <h1 id="2"> BINARY TREE </h1>  [回到目录](#0)  
+   
+   <br/>    
+   <br/>    
   
+    
+    
+
+     
+<h1 id="2.1"> LeetCode 94 </h1>  [回到目录](#0)  
+## 1 [二叉树的中序遍历 binary-tree inorder traversa](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)  
+给定一个二叉树，返回它的中序 遍历。  
+
+**进阶**: 递归算法很简单，你可以通过迭代算法完成吗？  
+
+1.1 递归法  
+c++代码如下：  
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void do_inorder_traversal(TreeNode* node, vector<int>& res) {
+        if(node != nullptr) {
+            do_inorder_traversal(node->left, res);
+            res.push_back(node->val);
+            do_inorder_traversal(node->right, res);
+        }
+    }
+    
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        
+        do_inorder_traversal(root, res);
+
+        return res;        
+    }
+};
+```  
+
+1.2 迭代法
+
 
   
 
