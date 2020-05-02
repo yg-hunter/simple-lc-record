@@ -190,7 +190,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
 }
 ```
 
-上面代码改成c++后，耗时及内存消耗都增加了不少，如下表:  
+上面代码改成c++后，耗时及内存消耗都增加了不少，如下表:    
   
 
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
@@ -291,7 +291,9 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
     return head;
 }
 ```  
-双百的代码，执行结果：  
+双百的代码，执行结果：   
+  
+  
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
 -|-|-|-|-|
 几秒前 | 通过 | 0 ms | 5.3 MB | C |    
