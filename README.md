@@ -190,12 +190,15 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
 }
 ```
 
-上面代码改成c++后，耗时及内存消耗都增加了不少，如下表:
+上面代码改成c++后，耗时及内存消耗都增加了不少，如下表:  
+  
 
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
 -|-|-|-|-|
 几秒前 | 通过 | 12 ms | 7.1 MB | Cpp |
-2 分钟前 | 通过 | 4 ms | 5.7 MB | C |
+2 分钟前 | 通过 | 4 ms | 5.7 MB | C |  
+  
+  
 
 上面代码可以再优化，用一个临时的对象，作为新合并后链表的头，这样写法上就更简洁了，如下：
 ```C
@@ -221,7 +224,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
 }
 ```
 
-### 2.2 递归法
+### 2.2 递归法  
 ```c
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
     if(l1 == NULL)
@@ -287,11 +290,11 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
     
     return head;
 }
-```
+```  
 双百的代码，执行结果：  
 提交时间 | 提交结果 |  执行用时 | 内存消耗 | 语言
 -|-|-|-|-|
-几秒前 | 通过 | 0 ms | 5.3 MB | C |  
+几秒前 | 通过 | 0 ms | 5.3 MB | C |    
   
    
    
