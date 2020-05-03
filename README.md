@@ -525,8 +525,31 @@ public:
 };
 ```  
 
-### 1.2 迭代法
+### 1.2 迭代法  
+需要借用栈来存储每颗子树的根节点  
 
+```c++    
+vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> res;
+
+    stack<TreeNode*> s_roots;        
+    TreeNode* tmp_root = root;
+    while(tmp_root!=nullptr || !s_roots.empty()) {
+        while(tmp_root!=nullptr) {
+            s_roots.push(tmp_root);
+            tmp_root = tmp_root->left;
+        }
+
+        tmp_root = s_roots.top();
+        s_roots.pop();
+        res.push_back(tmp_root->val);
+
+        tmp_root = tmp_root->right;
+    }
+
+    return res;        
+}
+```
 
   
   
@@ -564,8 +587,31 @@ public:
     }
 };
 ```    
-### 2.2 迭代法  
+### 2.2 迭代法    
+```c++
+vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> res;
 
+    stack<TreeNode*> s_roots;        
+    TreeNode* tmp_root = root;
+    while(tmp_root!=nullptr || !s_roots.empty()) {
+        while(tmp_root!=nullptr) {  // 一直往下到最左孩子
+            res.push_back(tmp_root->val);
+            s_roots.push(tmp_root);
+            tmp_root = tmp_root->left;
+        }
+
+        tmp_root = s_roots.top();
+        s_roots.pop();
+
+        tmp_root = tmp_root->right;
+    }
+
+    return res;  ;        
+}
+```  
+  
+  
 
 
 
@@ -602,5 +648,37 @@ vector<int> postorderTraversal(TreeNode* root) {
 ```    
 ### 3.2 迭代法    
 
+```c++
+vector<int> postorderTraversal(TreeNode* root) {
+    vector<int> res;
+    stack<TreeNode*> s_roots;
+    TreeNode* tmp_root = root;
+    TreeNode* prev = nullptr;
 
+    while(tmp_root!=nullptr) { // 一直到最左孩子节点
+        s_roots.push(tmp_root);
+        tmp_root = tmp_root->left;
+    }
+
+    while(!s_roots.empty()) {
+        tmp_root = s_roots.top();
+        if(tmp_root->right==nullptr || tmp_root->right==prev) {
+            res.push_back(tmp_root->val);
+            prev = tmp_root;
+            s_roots.pop();
+        }
+        else { // 右孩子
+            tmp_root = tmp_root->right;
+            while(tmp_root!=nullptr) {
+                s_roots.push(tmp_root);
+                tmp_root = tmp_root->left;
+            }
+        }
+    }
+
+    return res;        
+}
+```  
+  
+  
 
