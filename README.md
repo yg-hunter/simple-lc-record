@@ -11,6 +11,8 @@
     - [24. 两两交换链表中的节点](#1.4)  
     - [61. 旋转链表](#1.5)  
     - [44. 分隔链表](#1.6)   
+    - [141. 环形链表](#1.7)   
+    - [142. 环形链表 Ⅱ](#1.8)  
     
 
 - ## [Binary Tree](#2)
@@ -476,6 +478,133 @@ struct ListNode* partition(struct ListNode* head, int x){
 2 分钟前 | 通过 | 0 ms | 5.4 MB | C |     
   
   
+  
+
+    
+  
+  <br/>    
+  <br/>    
+    
+    
+     
+<h1 id="1.7"> LeetCode 141 </h1>  [回到目录](#0)  
+## 7 [环形链表 linked list cycle](https://leetcode-cn.com/problems/linked-list-cycle/)  
+
+### 7.1 快慢指针  
+c++代码如下：
+```c++
+bool hasCycle(ListNode *head) 
+{
+    if(head == nullptr)
+        return false;
+
+    ListNode *slow = head, *fast = head->next;
+    while(fast != nullptr) {
+        if(slow == fast)
+            return true;
+
+        slow = slow->next;
+        if(fast->next == nullptr)
+            return false;
+
+        fast = fast->next->next;
+    }
+    return false;
+}
+```  
+
+### 7.2 缓存map/set中，查找法
+```c++
+bool hasCycle(ListNode *head) 
+{
+    if(head == nullptr)
+        return false;
+
+    map<ListNode*, int> m_node;
+    while(head!=NULL) {
+        //map<ListNode*, int>::iterator it = m_node.find(head);
+        auto it = m_node.find(head);
+        if(it == m_node.end()) { // not found           
+            //m_node.insert(map<ListNode*, int>::value_type(head, head->val));
+            m_node.insert(pair<ListNode*, int>(head, head->val));
+            head = head->next;
+        }
+        else { // find it
+            return true;
+        }
+    }
+    return false;
+}
+```    
+  
+  
+  
+  <br/>    
+  <br/>    
+    
+    
+     
+<h1 id="1.8"> LeetCode 142 </h1>  [回到目录](#0)  
+## 8 [环形链表 Ⅱ linked list cycle ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)  
+
+### 8.1 缓存map/set中，查找法  
+c++代码如下：
+```c++
+ListNode *detectCycle(ListNode *head) 
+{
+    if(head == nullptr)
+        return nullptr;
+    
+    unordered_set<ListNode*> s_node;
+    ListNode* tmp_node = head;
+    while(tmp_node != nullptr) {
+        if(s_node.find(tmp_node) == s_node.end()) { //not found
+            s_node.insert(tmp_node);
+            tmp_node = tmp_node->next;
+        }
+        else {
+            return tmp_node;
+        }
+    }
+    return nullptr;        
+}
+```  
+
+### 8.2 双指针  
+```c++
+ListNode *detectCycle(ListNode *head) 
+{
+    if(head == nullptr)
+        return nullptr;
+    
+    ListNode* slow = head, *fast = head->next;
+    while(fast != nullptr) {
+        if(fast == slow) // 有环
+            break;
+        
+        slow = slow->next;
+        if(fast->next != nullptr) {
+            fast = fast->next->next;
+        }
+        else {
+            fast = nullptr; // 无环
+            break;
+        }
+    }
+
+    if(fast != nullptr) { // 确定有环
+        ListNode* tmp_node = head;
+        while(tmp_node != fast) {
+            tmp_node = tmp_node->next;
+            fast = fast->next;
+        }
+    }
+    return fast;
+}
+```  
+
+
+
   <br/>  
   <br/>  
   <br/>
