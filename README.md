@@ -601,7 +601,36 @@ ListNode *detectCycle(ListNode *head)
     }
     return fast;
 }
-```  
+```    
+可以简化为：
+```c++
+ListNode *detectCycle(ListNode *head) 
+{
+    if(head == nullptr)
+        return nullptr;
+
+    ListNode* slow = head, *fast = head->next;
+    while(fast != nullptr) {
+        if(fast == slow) { // 有环
+            fast = head;
+            while (fast != slow)
+            {
+                fast = fast->next;
+                slow = slow->next;
+            }
+            return fast;
+        }
+
+        slow = slow->next;
+        if(fast->next != nullptr) {
+            fast = fast->next->next;
+        }
+        else {
+            return nullptr; // 无环
+        }
+    }
+}
+```
 
 
 
